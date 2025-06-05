@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const termsandcondtInput = document.getElementById('termsandcondt');
     const successResult = document.getElementById('successResult');
     const signUpBtn = document.getElementById('signupBtn');
+    const checkboxError = document.getElementById('checkboxError');
 
     //Password Show/Hide
     togglePswd.addEventListener('click', togglePassword => {
@@ -170,10 +171,18 @@ document.addEventListener('DOMContentLoaded', function () {
             isValid = false;
         }
         // Checkbox validation
-        if (!itermsandcondtInput.checked) {
+        if (!termsandcondtInput.checked) {
             errors[4].style.display = 'block';
             isValid = false;
         }
+        //         termsandcondtInput.addEventListener('change', function () {
+        //     if (!this.checked) {
+        //         checkboxError.style.display = 'block';
+        //     } else {
+        //         checkboxError.style.display = 'none';
+        //     }
+        // });
+
 
         if (!isValid) {
             signUpBtn.disabled = true;
