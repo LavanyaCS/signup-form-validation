@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- META INFO -->
   <meta name="author" content="Lavanya Chandran" />
-  <meta name="description" content="Sign up quickly and securely with our simple form. Enter your details, set your password, and agree to the terms and conditions. Join now and get started!" />
-  <meta name="keywords" content="Sign Up, Registration, Secure Form, User Account, Email Sign Up, Lavanya Chandran, Web Development, JavaScript Validation" />
+  <meta name="description"
+    content="Sign up quickly and securely with our simple form. Enter your details, set your password, and agree to the terms and conditions. Join now and get started!" />
+  <meta name="keywords"
+    content="Sign Up, Registration, Secure Form, User Account, Email Sign Up, Lavanya Chandran, Web Development, JavaScript Validation" />
   <title>Sign Up - Lavanya Chandran</title>
   <!-- Custom CSS -->
   <link href="css/style.css" rel="stylesheet" />
@@ -31,62 +33,84 @@
           <h2 class="text-center section-title">Sign Up</h2>
           <p class="text-center lead">Welcome! Let’s Get You Started!</p>
           <div class="form-container">
-            <form class="needs-validation" novalidate>
-              <div class="row gap-3 px-4">
+            <form novalidate>
+              <div class="row gap-1 px-4">
                 <div class="col-12">
                   <label for="fullname">Full Name</label>
-                  <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
-                    <input type="text" class="form-control" id="fullname" placeholder="Enter your name" />
+                  <div class="position-relative">
+
+                    <span class="position-absolute top-50 start-0 translate-middle-y ps-3" style="z-index:10;"><i
+                        class="bi bi-person-circle"></i></span>
+                    <div class="input-group">
+                      <input type="text" class="form-control ps-5" id="fullname" placeholder="Enter your name" />
+                    </div>
                   </div>
                   <div class="invalid-error text-danger" aria-live="polite">Please enter your full name.</div>
                 </div>
 
                 <div class="col-12">
                   <label for="email">Email</label>
-                  <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email address" />
+                  <div class="position-relative">
+
+                    <span class="position-absolute top-50 start-0 translate-middle-y ps-3" style="z-index:10;"><i
+                        class="bi bi-envelope"></i></span>
+                    <div class="input-group">
+                      <input type="email" class="form-control ps-5" id="email" placeholder="Enter your email address" />
+                    </div>
                   </div>
                   <div class="invalid-error text-danger" aria-live="polite">Please provide a valid email.</div>
                 </div>
 
                 <div class="col-12">
-                  <label for="password">Password</label>
-                  <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-key"></i></span>
-                    <input type="password" class="form-control" id="password" placeholder="Enter your password" />
-                    <span class="input-group-text cursor-pointer" ><i class="bi bi-eye-slash" id="togglePassword" ></i></span>
+                  <label for="password" class="form-label">Password</label>
+
+                  <div class="position-relative">
+                    <span class="position-absolute top-50 start-0 translate-middle-y ps-3" style="z-index:10;"><i
+                        class="bi bi-key"></i></span>
+                    <div class="input-group">
+                      <input type="password" class="ps-5 form-control" id="password"
+                        placeholder="Enter your password" />
+                    </div>
+                    <span class="position-absolute top-50 end-0 translate-middle-y pe-3 cursor-pointer"
+                      style="z-index: 10;">
+                      <i class="bi bi-eye-slash" id="togglePassword"></i>
+                    </span>
                   </div>
-                  <div class="invalid-error text-danger" aria-live="polite">Password must be at least 8 characters, contain uppercase, lowercase, number, and special character.</div>
+                  <div class="invalid-error text-danger">
+                    Password must be at least 8 characters, contain uppercase, lowercase, number, and special character.
+                  </div>
                 </div>
 
                 <div class="col-12">
                   <label for="confirmpassword">Confirm Password</label>
-                  <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
-                    <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm your password" />
-                                        <span class="input-group-text cursor-pointer" ><i class="bi bi-eye-slash" id="toggleconfirmPassword" ></i></span>
+                  <div class="position-relative">
+                    <span class="position-absolute top-50 start-0 translate-middle-y ps-3" style="z-index:10;"><i
+                        class="bi bi-key-fill"></i></span>
+                    <div class="input-group">
+                      <input type="password" class="form-control ps-5" id="confirmpassword"
+                        placeholder="Confirm your password" />
+                    </div> <span class="position-absolute top-50 end-0 translate-middle-y pe-3" style="z-index:10;"><i
+                        class="bi bi-eye-slash" id="toggleconfirmPassword"></i></span>
 
                   </div>
                   <div class="invalid-error text-danger" aria-live="polite">Passwords do not match.</div>
                 </div>
 
                 <div class="col-12">
-                  <div class="form-check">
+                  <div class="form-check mt-2">
                     <input class="form-check-input" type="checkbox" id="termsandcondt" />
                     <label class="form-check-label" for="termsandcondt">
-                      Accept terms and conditions
+                      I accept the <a href="#" target="_blank">terms and conditions</a>.
                     </label>
                   </div>
                   <div class="invalid-error text-danger" aria-live="polite">You must agree before submitting.</div>
                 </div>
 
                 <div class="col-12 d-flex gap-2 justify-content-end align-items-center">
-                  <button type="submit" class="submit btn btn-primary w-100">Sign Up</button>
+                  <button type="submit" id="signupBtn" class="submit btn btn-primary w-100">Sign Up</button>
                 </div>
                 <div class="col-12">
-                  <div  id="successResult"></div>
+                  <div id="successResult"></div>
                 </div>
               </div>
             </form>
