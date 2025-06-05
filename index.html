@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- META INFO -->
+  <meta name="author" content="Lavanya Chandran" />
+  <meta name="description" content="Sign up quickly and securely with our simple form. Enter your details, set your password, and agree to the terms and conditions. Join now and get started!" />
+  <meta name="keywords" content="Sign Up, Registration, Secure Form, User Account, Email Sign Up, Lavanya Chandran, Web Development, JavaScript Validation" />
+  <title>Sign Up - Lavanya Chandran</title>
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- Bootstrap5 CSS CDN -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap5 JS CDN -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+</head>
+
+<body>
+  <!--hero section-->
+  <section id="form-sign-up" class="sign-up">
+    <div class="row">
+      <div class="col-12 col-md-7">
+        <!-- Optional left column -->
+      </div>
+      <div class="col-12 col-md-5">
+        <div class="bg-white shadow-lg rounded-2 h-100 p-4">
+          <h2 class="text-center section-title">Sign Up</h2>
+          <p class="text-center lead">Welcome! Let’s Get You Started!</p>
+          <div class="form-container">
+            <form class="needs-validation" novalidate>
+              <div class="row gap-3 px-4">
+                <div class="col-12">
+                  <label for="fullname">Full Name</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+                    <input type="text" class="form-control" id="fullname" placeholder="Enter your name" />
+                  </div>
+                  <div class="invalid-error text-danger" aria-live="polite">Please enter your full name.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="email">Email</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email address" />
+                  </div>
+                  <div class="invalid-error text-danger" aria-live="polite">Please provide a valid email.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="password">Password</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-key"></i></span>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password" />
+                    <span class="input-group-text cursor-pointer" ><i class="bi bi-eye-slash" id="togglePassword" ></i></span>
+                  </div>
+                  <div class="invalid-error text-danger" aria-live="polite">Password must be at least 8 characters, contain uppercase, lowercase, number, and special character.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="confirmpassword">Confirm Password</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+                    <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm your password" />
+                                        <span class="input-group-text cursor-pointer" ><i class="bi bi-eye-slash" id="toggleconfirmPassword" ></i></span>
+
+                  </div>
+                  <div class="invalid-error text-danger" aria-live="polite">Passwords do not match.</div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="termsandcondt" />
+                    <label class="form-check-label" for="termsandcondt">
+                      Accept terms and conditions
+                    </label>
+                  </div>
+                  <div class="invalid-error text-danger" aria-live="polite">You must agree before submitting.</div>
+                </div>
+
+                <div class="col-12 d-flex gap-2 justify-content-end align-items-center">
+                  <button type="submit" class="submit btn btn-primary w-100">Sign Up</button>
+                </div>
+                <div class="col-12">
+                  <div  id="successResult"></div>
+                </div>
+              </div>
+            </form>
+          </div> <!-- .form-container -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Script File -->
+  <script src="js/validation.js"></script>
+</body>
+
+</html>
