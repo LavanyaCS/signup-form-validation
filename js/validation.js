@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const fullNameInput = document.getElementById('fullname');
     const emailInput = document.getElementById('email');
     const confirmPasswordInput = document.getElementById('confirmpassword');
-    const termsandcondt = document.getElementById('termsandcondt');
+    const termsandcondtInput = document.getElementById('termsandcondt');
     const successResult = document.getElementById('successResult');
     const signUpBtn = document.getElementById('signupBtn');
 
@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!validfullName(this.value)) {
             errors[0].style.display = 'block';
         }
-        else{
+        else {
             errors[0].style.display = 'none';
         }
     });
-        // Hide error on user input/change
+    // Hide error on user input/change
     fullNameInput.addEventListener('input', () => {
         errors[0].style.display = 'none';
     });
@@ -65,13 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!validemailInput(this.value)) {
             errors[1].style.display = 'block';
         }
-        else{
+        else {
             errors[1].style.display = 'none';
         }
     });
     emailInput.addEventListener('input', () => {
         errors[1].style.display = 'none';
-    });     
+    });
     //Password
     function validpasswordInput(passwordInput) {
         let passwordCondt = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&])[A-Za-z\d@$!%*?#&]{8,}$/;
@@ -82,45 +82,45 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!validpasswordInput(this.value)) {
             errors[2].style.display = 'block';
         }
-        else{
+        else {
             errors[2].style.display = 'none';
         }
     });
     passwordInput.addEventListener('input', () => {
         errors[2].style.display = 'none';
-    });     
+    });
     //confirm Password
-    confirmPasswordInput.addEventListener('blur',function(){
-        if(this.value !== passwordInput.value || this.value === ''){
-             errors[3].style.display = 'block';
+    confirmPasswordInput.addEventListener('blur', function () {
+        if (this.value !== passwordInput.value || this.value === '') {
+            errors[3].style.display = 'block';
         }
-        else{
+        else {
             errors[3].style.display = 'none';
         }
     });
-    
+
     confirmPasswordInput.addEventListener('input', () => {
         errors[3].style.display = 'none';
-    });     
+    });
     //checkbox 
-        termsandcondt.addEventListener('change',function(){
-        if(!this.checked){
-             errors[4].style.display = 'block';
+    termsandcondtInput.addEventListener('change', function () {
+        if (!this.checked) {
+            errors[4].style.display = 'block';
         }
-        else{
+        else {
             errors[4].style.display = 'none';
         }
     });
-    
-    termsandcondt.addEventListener('input', () => {
+
+    termsandcondtInput.addEventListener('input', () => {
         errors[4].style.display = 'none';
-    });     
-    function checkFormValidity(){
-        const isFullNameValid = validateFullName(fullNameInput.value);
-        const isEmailValid = validateEmailId(emailInput.value);
-        const isPasswordValid = validatePassword(passwordInput.value);
+    });
+    function checkFormValidity() {
+        const isFullNameValid = validfullName(fullNameInput.value);
+        const isEmailValid = validemailInput(emailInput.value);
+        const isPasswordValid = validpasswordInput(passwordInput.value);
         const isConfirmPasswordValid = passwordInput.value === confirmPasswordInput.value && confirmPasswordInput.value !== '';
-        const isTermsAccepted = termsandcondt.checked;        
+        const isTermsAccepted = termsandcondtInput.checked;
         const isFormValid = isFullNameValid && isEmailValid && isPasswordValid && isConfirmPasswordValid && isTermsAccepted;
         signUpBtn.disabled = !isFormValid;
         signUpBtn.style.cursor = isFormValid ? "pointer" : "not-allowed";
@@ -130,34 +130,37 @@ document.addEventListener('DOMContentLoaded', function () {
     [fullNameInput, emailInput, passwordInput, confirmPasswordInput].forEach(input => {
         input.addEventListener('input', checkFormValidity);
     });
-    termsandcondt.addEventListener('change', checkFormValidity);
+    termsandcondtInput.addEventListener('change', checkFormValidity);
 
     // Initial check on page load
     checkFormValidity();
 
     //Form Submit
-    form.addEventListener('submit',e => {
+    form.addEventListener('submit', e => {
         e.preventDefault();
-        errors.forEach(error => error.style.display = 'none');
-         let isValid = true;
+        function hideAllErrors() {
+            errors.forEach(error => error.style.display = 'none');
+        }
+        hideAllErrors();
+        let isValid = true;
 
         const fullName = fullNameInput.value;
         const email = emailInput.value;
         const password = passwordInput.value;
         const confirmPassword = confirmPasswordInput.value;
-        const termsandcondt = termsandcondt.checked;
+        const isTermsChecked = termsandcondtInput.checked;
         // Full name validation
-        if (!validateFullName(fullName)) {
+        if (!validfullName(fullName)) {
             errors[0].style.display = 'block';
             isValid = false;
         }
         // Email validation
-        if (!validateEmailId(email)) {
+        if (!validemailInput(email)) {
             errors[1].style.display = 'block';
             isValid = false;
         }
         // Password validation
-        if (!validatePassword(password)) {
+        if (!validpasswordInput(password)) {
             errors[2].style.display = 'block';
             isValid = false;
         }
@@ -167,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
             isValid = false;
         }
         // Checkbox validation
-        if (!termsandcondt.checked) {
+        if (!itermsandcondtInput.checked) {
             errors[4].style.display = 'block';
             isValid = false;
         }
@@ -186,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
             form.reset();
 
             // Hide all errors after reset
-            errors.forEach(error => error.style.display = 'none');
+            hideAllErrors();
             // Disable button and reset cursor after reset
             signUpBtn.disabled = true;
             signUpBtn.style.cursor = "not-allowed";
