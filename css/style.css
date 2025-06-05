@@ -1,0 +1,55 @@
+* {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background:url('../images/home.png') no-repeat 100%;min-height: 100vh;
+  padding: 30px;display:grid;place-items: center;
+}
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  position: relative;
+}
+
+.section-title:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 10rem;
+  height: 0.0625rem;
+  background:
+    color-mix(in srgb, #212529e8, transparent 60%);
+  left: 0;
+  right: 0;
+  bottom: 0.0625rem;
+  margin: auto;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 3.75rem;
+  height: 0.1875rem;
+  background: #212529e8;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.invalid-error {
+  display: none;
+}
+
+/* Responsive:screens */
+
+@media (max-width: 450px) {
+
+}
