@@ -103,18 +103,27 @@ document.addEventListener('DOMContentLoaded', function () {
     confirmPasswordInput.addEventListener('input', () => {
         errors[3].style.display = 'none';
     });
-    //checkbox 
-    termsandcondtInput.addEventListener('change', function () {
+    //checkbox  when tab to new field
+    termsandcondtInput.addEventListener('blur', function () {
         if (!this.checked) {
-            errors[4].style.display = 'block';
+            checkboxError.style.display = 'block';
         }
         else {
-            errors[4].style.display = 'none';
+            checkboxError.style.display = 'none';
+        }
+    });
+    //if checked and unchecked we need
+    termsandcondtInput.addEventListener('change', function () {
+        if (!this.checked) {
+            checkboxError.style.display = 'block';
+        }
+        else {
+            checkboxError.style.display = 'none';
         }
     });
 
     termsandcondtInput.addEventListener('input', () => {
-        errors[4].style.display = 'none';
+        checkboxError.style.display = 'none';
     });
     function checkFormValidity() {
         const isFullNameValid = validfullName(fullNameInput.value);
@@ -172,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         // Checkbox validation
         if (!termsandcondtInput.checked) {
-            errors[4].style.display = 'block';
+            checkboxError.style.display = 'block';
             isValid = false;
         }
         //         termsandcondtInput.addEventListener('change', function () {
